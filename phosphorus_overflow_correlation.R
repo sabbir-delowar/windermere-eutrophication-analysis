@@ -56,12 +56,11 @@ lines(Phosphorus_w_$date[order(Phosphorus_w_$date)], Phosphorus_w_$result[order(
 addWorksheet(Phosphorus_w,"Phosphorus_w__20-22")
 writeData(Phosphorus_w,"Phosphorus_w__20-22",Phosphorus_w_1, rowNames = TRUE)
 openxlsx::readWorkbook(Phosphorus_w, sheet=2)
- saveWorkbook(Phosphorus_w,"C://Users//SLL883//OneDrive - Brunel University London//Dissertation//Stat_data//Phosphorus_w.xlsx", overwrite = TRUE )
+ saveWorkbook(Phosphorus_w, file = file.path("outputs", "Phosphorus_w.xlsx"), overwrite = TRUE)
 
 
  
 #call P data from pc####
- setwd("C:/Users/SLL883/OneDrive - Brunel University London/Dissertation/Stat_data")
  P_ambleside <- read.table("P_ambleside.csv", header = T, sep = ",",
                      stringsAsFactors = T) 
  str(P_ambleside)
@@ -320,7 +319,7 @@ ggplot(data = Sumfull_p_m, aes(x = Phosphorus, y = Mean)) +
 # addWorksheet(Trend, "Phosphorus_correlation")
 # writeData(Trend,"Phosphorus_correlation",trend_p, rowNames = TRUE)
 # openxlsx::readWorkbook(Trend, sheet=1)
-# # saveWorkbook(Trend,"C://Users//SLL883//OneDrive - Brunel University London//Dissertation//Stat_data//trend.xlsx", overwrite = TRUE )
+# saveWorkbook(Trend, file = file.path("outputs", "trend.xlsx"), overwrite = TRUE)
 
 #Overflow vs NDCI####
 Sumfull_p_m<-Sumfull_p_m[-6,]
