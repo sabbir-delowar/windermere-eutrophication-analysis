@@ -7,7 +7,7 @@ pacman::p_load(pgirmess,boot, bootstrap,sp, rgdal, tidyr, raster,
                viridis,hrbrthemes,plotly,devtools, factoextra, rstatix,
                )
 #set working directory
-wd <- ("C:/Users/SLL883/OneDrive - Brunel University London/Dissertation/gis_BASIC DATA/Lake_data/NDCI_/")
+wd <- file.path(getwd(), "data")
 setwd(wd)
 
 #create a workbook
@@ -501,7 +501,7 @@ fulldata
 addWorksheet(Stats, "Full data")
 writeData(Stats,"Full data",fulldata, rowNames = TRUE)
 openxlsx::readWorkbook(Stats, sheet=1)
-# saveWorkbook(Stats,"C://Users//SLL883//OneDrive - Brunel University London//Dissertation//Stat_data//Stat_r.xlsx", overwrite = TRUE )
+#saveWorkbook(Stats, file = file.path("outputs", "Stat_r.xlsx"), overwrite = TRUE)
 
 #horizonal  to verticle
 fulldata_1 <- fulldata %>% pivot_longer(cols=c('1','2', '3', '4', '5'),
