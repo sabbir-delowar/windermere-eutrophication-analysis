@@ -271,3 +271,12 @@ MinMax.evaluate(function (MinMaxDict) {
   };
   Map.addLayer(AOI.select('NDCI'), BandCompViz, 'NDCI');
 });
+//export ndci to drive
+var projection = ndci.projection().getInfo();
+Export.image.toDrive({
+  image: ndci,
+  description: 'Windermere_21_7-8',
+  crs: projection.crs,
+  crsTransform: projection.transform,
+  region: polygon
+});
